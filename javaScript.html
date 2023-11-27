@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="JavaScript" href="efeito.js">
+<title>JavaScript</title>
+
+<head>
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #fef5cb;
+}
+
+header {
+    background-color:#5e0000;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: #d6d6d6;
+}
+.codigo-js {
+    margin: auto;
+    margin-top: 15px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color:#00004f;
+    color: white;
+}
+
+.codigo-js-texto {
+    margin: auto;
+    margin-top: 15px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color:#1b2549;
+    color: white;
+}
+
+.titulos {
+    text-align: center;
+    font-size: 20px;
+}
+.titulo {
+    padding: 10px;
+    display: inline-block;
+    transition: background-color 0.5s;
+   }
+   
+   .titulo:hover {
+    background-color: #962013;
+    color: white;
+   }
+footer {
+    background-color: #5e0000;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.links {
+    color: white;
+}
+    </style>
+</head>
+<header>
+    <h1 class="titulo">JavaScript</h1>
+</header>
+
+<div class="container">
+    <p>Com o auxílio do curso e um professor altamente competente e carismático, capaz de estimular a turma, fui capaz
+        de aprofundar meus conhecimentos em JavaScript, mesmo partindo do início. Graças ao professor, agora sou capaz
+        de afirmar que compreendo, embora de forma limitada, mas com um desempenho muito melhor do que no início.
+        <br><br>
+        Agora, alguns exemplos de códigos JavaScript
+    </p>
+    <!-- DOM -->
+    <strong>
+        <p class="titulos">DOM</p>
+    </strong>
+    <p class="codigo-js">
+        // Acessar um elemento pelo seu ID <br>
+        let elemento = document.getElementById("idElemento");<br><br>
+
+        // Acessar um elemento pelo seu nome<br>
+        let elementos = document.getElementsByName("nomeElemento");<br><br>
+
+        // Acessar todos os elementos de um tipo específico<br>
+        let todosElementos = document.getElementsByTagName("p");<br><br>
+
+        // Criar um novo elemento<br>
+        let novoElemento = document.createElement("p");<br><br>
+
+        // Adicionar um elemento filho a outro elemento<br>
+        elemento.appendChild(novoElemento);<br><br>
+
+        // Remover um elemento filho de outro elemento<br>
+        elemento.removeChild(novoElemento);<br><br>
+
+        // Adicionar ou modificar um atributo de um elemento<br>
+        elemento.setAttribute("atributo", "valor");<br><br>
+
+        // Acessar o valor de um atributo de um elemento<br>
+        let valorAtributo = elemento.getAttribute("atributo");
+
+        // Adicionar um manipulador de eventos a um elemento<br>
+        elemento.addEventListener("evento", function() {
+        // Código a ser executado quando o evento ocorrer<br>
+        });
+        <br><br>
+    </p>
+    <p class="codigo-js-texto"> No exemplo acima, foram apresentados alguns trechos de código em JavaScript para
+        manipular o DOM (Document
+        Object
+        Model). Esses trechos podem ser utilizados para interagir com os elementos HTML de uma página web,
+        modificando-os ou
+        adicionando novos conteúdos.</p>
+
+    <!-- Uso de eventos -->
+    <strong>
+        <p class="titulos">Uso de Eventos</p>
+    </strong>
+    <p class="codigo-js">
+        document.getElementById('meuBotao').addEventListener('click', function() {
+        alert('Botão foi clicado!');
+        }); <br><br>
+    </p>
+    <p class="codigo-js-texto">Sempre que o botão com id 'meuBotao' for clicado, a função anônima será executada,
+        exibindo um
+        alerta com a mensagem "Botão foi clicado!".</p>
+
+    <!-- Logica de programação-->
+    <strong>
+        <p class="titulos">Logica de Programação</p>
+    </strong>
+    <p class="codigo-js">
+        // Variáveis e Tipos de Dados <br>
+        var nome = "João";<br>
+        var idade = 25;<br>
+        var possuiGraduacao = true;<br><br>
+
+        // Funções<br>
+        function saudacao(nome) {<br>
+        return "Olá, " + nome + "!";<br>
+        }<br><br>
+
+        console.log(saudacao(nome));<br><br>
+
+        // Estruturas de Controle<br>
+        for (var i = 0; i < 5; i++) { console.log("Executando loop: " + i);
+}<br><br>
+
+// Objetos e JSON<br>
+var pessoa = {<br>
+    nome: " Maria", idade: 30, possuiGraduacao: false }; console.log(JSON.stringify(pessoa)); <br><br>
+    </p>
+    <p class="codigo-js-texto">
+        Neste exemplo, variáveis são declaradas para armazenar informações básicas. A função "saudacao" é definida para
+        retornar uma saudação personalizada. Um loop "for" é usado para executar um bloco de código várias vezes. <br>
+        <br>
+
+        Um objeto "pessoa" é criado para armazenar informações sobre uma pessoa. Por fim, a função "JSON.stringify()" é
+        usada para converter o objeto em uma string JSON.
+    </p>
+</div>
+
+<footer>
+    <p>Site feito por: Lucas Thierry</p>
+    <p>Links</p>
+    <p class="titulo"><a href="index.html" class="links">Pagina inicial</a></p>
+    <p class="titulo"><a href="typeScript.html" class="links">TypeScript</a></p>
+    <p class="titulo"><a href="" class="links">React</a></p>
+</footer>
+
+</body>
+
+</html>
