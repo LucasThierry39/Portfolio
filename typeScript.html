@@ -3,6 +3,9 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="JavaScript" href="efeito.js">
 <title>TypeScript</title>
@@ -12,7 +15,8 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Oswald', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background: #fef5cb;
         }
 
@@ -92,7 +96,8 @@
 </header>
 
 <div class="container">
-    <p>O TypeScript desempenha um papel cada vez mais importante no desenvolvimento moderno por algumas razões chave: <br><br>
+    <p>O TypeScript desempenha um papel cada vez mais importante no desenvolvimento moderno por algumas razões chave:
+        <br><br>
 
         1. Tipagem estática: A capacidade de adicionar tipos estáticos ao JavaScript traz benefícios significativos para
         o desenvolvimento de software. Tipagem estática permite detectar erros mais cedo, pois verifica a integridade
@@ -132,30 +137,135 @@
         <p class="titulos">Tipos</p>
     </strong>
     <p class="codigo-js">
-        
-        <br><br>
-    </p>
-    <p class="codigo-js-texto"> No exemplo acima, foram apresentados alguns trechos de código em JavaScript para
-       Text</p>
+        --- Tipo união --- <br><br>
+        type StringOrNumber = string | number; <br><br>
 
-    <!-- Uso de eventos -->
+        function formatar(valor: StringOrNumber): string {<br>
+        if (typeof valor === 'string') {<br>
+        return `Cadeia de caracteres: ${valor}`;<br>
+        } else {<br>
+        return `Número: ${valor}`;<br>
+        }<br>
+        }<br><br>
+
+        console.log(formatar('Olá, mundo!'));<br>
+        console.log(formatar(42));<br><br>
+
+        --- Tipo lateral --- <br><br>
+        type Direcao = 'cima' | 'baixo' | 'esquerda' | 'direita';<br><br>
+
+        function mover(direcao: Direcao): void {<br>
+        // Implementação da função mover<br>
+        }<br><br>
+
+        mover('cima');<br>
+        mover('esquerda');<br>
+    </p>
+    <p class="codigo-js-texto"> Nos dois exemplos, usamos o recurso de tipos avançados do TypeScript para garantir a
+        segurança do código. Ao usar uniões de tipos e tipos literais, o TypeScript pode verificar os possíveis valores
+        de um tipo durante a compilação e alertar o desenvolvedor se algo estiver errado.</p>
+
+    <!-- Interfaces -->
     <strong>
-        <p class="titulos">Uso de Eventos</p>
+        <p class="titulos">Interfaces</p>
     </strong>
     <p class="codigo-js">
-       
-    </p>
-    <p class="codigo-js-texto">Text</p>
+        interface Pessoa { <br>
+        nome: string;<br>
+        idade: number;<br>
+        saudacao(): string;<br>
+        }<br><br>
 
-    <!-- Logica de programação-->
+        class Usuario implements Pessoa {<br>
+        constructor(public nome: string, public idade: number) {}<br><br>
+
+        saudacao(): string {<br>
+        return `Olá, meu nome é ${this.nome} e eu tenho ${this.idade} anos.`;<br>
+        }<br>
+        }<br><br>
+
+        let joao = new Usuario('João', 25);<br>
+        console.log(joao.saudacao());
+    </p>
+    <p class="codigo-js-texto">Então, no exemplo acima, o construtor personalizado permite que você crie instâncias da
+        classe "Usuario" com diferentes valores de "nome" e "idade". O método "saudacao" implementado pela classe
+        permite que você acesse e exiba a mensagem de saudação de cada instância.</p>
+
+    <!-- Recursos Avançados -->
     <strong>
-        <p class="titulos">Logica de Programação</p>
+        <p class="titulos">
+            Recurso avançado: Generics
+        </p>
     </strong>
     <p class="codigo-js">
-        
+        function arrayComIdade<T extends { idade: number }>(arr: T[]): T[] {
+            return arr.filter((item) => item.idade >= 18);<br>
+            }<br><br>
+
+            let pessoas: { nome: string; idade: number }[] = [<br>
+            { nome: 'Ana', idade: 20 },<br>
+            { nome: 'Carlos', idade: 17 },<br>
+            { nome: 'Maria', idade: 23 },<br>
+            ];<br><br>
+
+            let pessoasComIdade = arrayComIdade(pessoas);<br>
+            console.log(pessoasComIdade);
     </p>
     <p class="codigo-js-texto">
-      Text
+        O exemplo apresenta uma função genérica chamada "arrayComIdade", que recebe um array de qualquer tipo que tenha
+        uma propriedade "idade" do tipo "number". A função filtra o array e retorna um novo array com elementos que
+        possuam uma propriedade "idade" maior ou igual a 18. Um exemplo de uso dessa função é fornecido, onde um array
+        de objetos do tipo "{ nome: string; idade: number }" é passado como argumento. A função infere automaticamente o
+        tipo com base no argumento fornecido e retorna um novo array contendo apenas os objetos do array original que
+        possuem uma propriedade "idade" maior ou igual a 18. O resultado final é impresso na consola.
+    </p>
+
+    <!-- Projeto com TypeScript -->
+
+    <strong>
+        <p class="titulos">
+            Projeto em que o TypeScript teve benefícios importantes
+        </p>
+    </strong>
+    <p class="codigo-js-texto">
+        O Angular é um projeto específico que tem visto grandes benefícios ao usar o TypeScript. <br><br>
+
+        O Angular é um framework para construir aplicações web, baseado em componentes e utilizando uma linguagem de
+        programação moderna e fortemente tipada.<br><br>
+
+        Alguns dos benefícios que o TypeScript trouxe ao Angular incluem:<br>
+
+        Detecção de erros antecipados: o TypeScript faz a verificação de tipos no momento da compilação, permitindo que
+        os desenvolvedores descubram e corrijam erros no código antes de executá-lo.<br><br>
+
+        Refatoração facilitada: o TypeScript permite que os desenvolvedores entendam melhor a estrutura do código e a
+        lógica das aplicações, facilitando a realização de refatorações e a criação de uma base de código de
+        qualidade.<br><br>
+
+        Suporte a IDEs: o TypeScript possui excelente suporte a IDEs (Ambientes de Desenvolvimento Integrado), como o
+        Visual Studio Code. Isso inclui recursos como autocompletar, refatoração automática e detecção de erros em tempo
+        real.<br><br>
+
+        Documentação automática: o TypeScript pode gerar documentação automaticamente a partir dos comentários e dos
+        tipos dos componentes e serviços do Angular.<br><br>
+
+        Melhor escalabilidade: o TypeScript permite que as aplicações Angular cresçam de maneira mais estruturada e
+        organizada, facilitando a manutenção e a expansão do código.<br><br>
+
+        Maior produtividade: a utilização do TypeScript no Angular permite que os desenvolvedores sejam mais produtivos,
+        graças às facilidades de verificação de tipos, refatoração e documentação.<br><br>
+
+        Por exemplo, aqui está um trecho de código TypeScript em um componente Angular:
+    </p>
+    <p class="codigo-js-texto">
+        import { Component } from '@angular/core';<br><br>
+
+        @Component({<br>
+        selector: 'app-root',<br>
+        templateUrl: './app.component.html',<br>
+        styleUrls: ['./app.component.css']<br>
+        })<br>
+        export
     </p>
 </div>
 
